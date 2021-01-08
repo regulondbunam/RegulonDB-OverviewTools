@@ -1,0 +1,36 @@
+type Overview{
+  getAllObjectInfo:  [overviewInfoType]
+  getOverview(_id: String): overviewInfoType
+}
+
+type overviewInfoType {
+  _id: String
+  queryName: String
+  objectType: String
+  graph: graphType
+  data: [dataType]
+}
+
+type graphType {
+  title: String
+  description: String
+  labelX: String
+  labelY: String
+  footGraph: String
+  graphType: String
+}
+
+type dataType {
+  xAxis: Int
+  yAxis: Int
+  objectsRelated: [objectsRelatedType]
+}
+
+type objectsRelatedType {
+  _id: String
+  name: String
+}
+type Query {
+  getAllObjectInfo:  [overviewInfoType]
+  getOverview(_id: String): overviewInfoType
+}

@@ -1,0 +1,30 @@
+{
+  "name": "webservice",
+  "version": "1.0.0",
+  "description": "this is the webservice for RegulonDB Overviews Tools",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build && node build/index.js",
+    "build": "babel src -d build",
+    "dev": "nodemon ."
+  },
+  "author": "Eedgar Hernández",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.19.0",
+    "apollo-server-express": "^2.19.0",
+    "axios": "^0.21.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.2.3",
+    "graphql": "^15.4.0",
+    "graphql-import": "^1.0.2",
+    "merge-graphql-schemas": "^1.7.8",
+    "mongoose": "^5.10.16",
+    "nodemon": "^2.0.6"
+  },
+  "devDependencies": {}
+}

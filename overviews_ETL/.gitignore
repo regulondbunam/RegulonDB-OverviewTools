@@ -4,7 +4,6 @@
 
 ### macOS ###
 # General
-/node_modules
 .DS_Store
 .AppleDouble
 .LSOverride

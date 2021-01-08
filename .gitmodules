@@ -1,9 +1,0 @@
-[submodule "overviews_etl"]
-	path = overviews_etl
-	url = https://github.com/EedgarHM/overviews_etl
-[submodule "overviews_webapp"]
-	path = overviews_webapp
-	url = https://github.com/EedgarHM/overviews_webapp
-[submodule "overviews_web_service"]
-	path = overviews_web_service
-	url = https://github.com/EedgarHM/overviews_web_service
