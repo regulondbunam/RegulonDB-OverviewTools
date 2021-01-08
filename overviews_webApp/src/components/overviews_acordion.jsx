@@ -16,28 +16,34 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Acordion({ nameObject, groupByObject }) {
+export default function Acordion({ id, nameGroup = "", graphics = [] }) {
   const classes = useStyles();
+  console.log(graphics)
   return (
     <div className={classes.root}>
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
-          id="panel1a-header"
+          id={id}
         >
-          <Typography className={classes.heading}>{nameObject}</Typography>
+          <Typography className={classes.heading}>{nameGroup}</Typography>
         </AccordionSummary>
-        {groupByObject.map((element) => {
-          console.log(element);
-          return <h3>{element}</h3>;
-        })}
-        <AccordionDetails>
-          {groupByObject.gene.title[0]}
-        </AccordionDetails>
-        <AccordionDetails>
-          {groupByObject.gene.title[1]}
-        </AccordionDetails>
+        {graphics.map((graphic) => {
+          //return <h3>{element}</h3>;
+
+          return (
+            <AccordionDetails>
+               <a
+                  href={`/overviews/${graphic.id}`}
+                  key={graphic.id}
+                  id={graphic.id}
+                >
+                  {graphic.title}
+                </a>
+            </AccordionDetails>
+          )
+       })}
       </Accordion>
     </div>
   );
