@@ -2,13 +2,13 @@
 # Overviews Model
 
 ## Description
-Genera el modelo de las variables y datos que podran mostrarse desde un Schema de mongo
+Genera el modelo de las collecciones en mongoDB, todo el modelo que aquí se genere deberá ser igual a la declaración
+del Schema.graphql, deberá seguir la misma estructura de la colección en mongo así como de los tipos de datos ya que 
+este modelo será con el que podremos enviar la información a el servicio web.
 
 ## Usage 
 
-```javascript
-&function(Parameters, if any);
-```
+N/A
 
 ## Arguments/Parameters
 
@@ -17,9 +17,7 @@ N/A
 ## Examples
 N/A
 ## Return 
-
-__[Type]:__ [Name]
-[Description (if necessary)]
+N/A
 
 ## Category
 
@@ -31,39 +29,12 @@ MIT License
 
 ## Author 
 
-RegulonDB Team: [full developer name]
+RegulonDB Team: EDGAR ENRRIQUE HERNANDEZ MARCELO
 **/
-
-
-/**
-	
-# Functions description
-
-## [Function name]
-
-__Description:__ 
-
-[Description of the function]
-
-
-__Usage:__
-
-```javascript
-&function(Parameters, if any);
-```
-
-__Input arguments/parameters:__ 
-
-_id: Es el ID del elemento que se buscará en el datamart y del cual se desplegara toda su informacion Ej. ECOLI001
-
-__Return:__ 
-
- Object: regresa todos los campos que se establecieron en esta sección
-[Description (if necessary)]
-**/
-
 import mongoose from 'mongoose';
+//Importamos el modulo de mongoose para poder crear un schema 
 
+//Generamos el schema con los mismos campos, tipos de datos y nombre de las variables definidas en nuestro .graphql
 const overviewInformationObject = new mongoose.Schema({
     _id: String,
     queryName: String,
@@ -90,5 +61,15 @@ const overviewInformationObject = new mongoose.Schema({
     ],
   });
 
+  //Creamos un modelo de nuestro schema, con el modulo mongoo.model y agregando el nombre de la base de datos a la cual se conectará
+  //y enviandole nuestro Schema generado anteriormente, ya que deberá existir esa misma coleccion en mongo y podrémos obtener todos esos datos
   const Overviews = mongoose.model('genedatamarts',overviewInformationObject); //Cambiar geneDatamarts por la variable
   export {Overviews};
+
+/**
+	
+# Functions description
+
+## N/A
+**/
+

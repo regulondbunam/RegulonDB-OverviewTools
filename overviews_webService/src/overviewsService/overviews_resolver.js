@@ -1,29 +1,27 @@
 /**
-# [Web Service Name]
+# Overviews Resolver
 	
 ## Description
 
-[Description details]
+Ejecuta los Querys o Mutations declarados en el .graphql, se encarga de mandarlos a traer y se los envía al controller
+de esta manera se ejecutan los querys correspondientes
 
 ## Usage 
-
-```javascript
-&function(Parameters, if any);
-```
-
+N/A
 ## Arguments/Parameters
 
-__[Name]:__ [Description]
-__[Name]:__ [Description]
+_ID: Es el identificador del elemento del cual se quiere obtener toda la informacion 
+
 
 ## Examples
 
-[Example details]
+El resolver funciona por si solo, cuando se ejecuta una consulta en el Playground el resolver se encarga de
+obtener el tipo de consulta que se realizará y manda al controlador la orden de ejecutarla, si se requiere por ejemplo
+realizar una consulta de un elemento especifico por su ID, entonces recoge el ID lo ingresa en el query respectivo
+y se manda esa información al controlador para ejecutar la consulta.
 
 ## Return 
-
-__[Type]:__ [Name]
-[Description (if necessary)]
+N/A
 
 ## Category
 
@@ -35,38 +33,8 @@ MIT License
 
 ## Author 
 
-RegulonDB Team: [full developer name]
+RegulonDB Team: EDGAR ENRRIQUE HERNANDEZ MARCELO
 **/
-
-
-/**
-	
-# Functions description
-
-## [Function name]
-
-__Description:__ 
-
-[Description of the function]
-
-
-__Usage:__
-
-```javascript
-&function(Parameters, if any);
-```
-
-__Input arguments/parameters:__ 
-
-__[Name]:__ [Description]
-__[Name]:__ [Description]
-
-__Return:__ 
-
-__[Type]:__ [Name]
-[Description (if necessary)]
-**/
-
 import {overviewsController} from '../overviewsService/overviews_controller';
 export const overviewsResolver = {
     Query: {
@@ -77,3 +45,11 @@ export const overviewsResolver = {
    
     }
 }
+
+/**
+	
+# Functions description
+
+## N/A
+**/
+

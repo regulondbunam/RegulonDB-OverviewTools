@@ -68,14 +68,6 @@ __Description:__
 Hace uso de la funcion connectionDB la cual se encarga de realizar la conexion entre el servidor y el cliente de apollo
 
 
-__Usage:__
-
-```javascript
-&function(Parameters, if any);
-```
-
-__Input arguments/parameters:__ 
-
 N/A
 __Return:__ 
 N/A

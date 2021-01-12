@@ -1,29 +1,26 @@
 /**
-# Overviews Tools Web Service
+# Overviews Controller
 	
 ## Description
 
-[Description details]
+Se encarga de realizar las consultas dentro del modelo de overviews
+El cual solo realiza dos consulta, una para obtener todos los datos con .find()
+Y la segunda que requiere de un ID para devolver toda la información de ese elemento
 
 ## Usage 
 
-```javascript
-&function(Parameters, if any);
-```
+N/A
 
 ## Arguments/Parameters
 
-__[Name]:__ [Description]
-__[Name]:__ [Description]
+_ID: Es el identificador del elemento del cual se quiere obtener toda la informacion 
 
 ## Examples
 
-[Example details]
+N/A
 
 ## Return 
-
-__[Type]:__ [Name]
-[Description (if necessary)]
+N/A
 
 ## Category
 
@@ -35,38 +32,8 @@ MIT License
 
 ## Author 
 
-RegulonDB Team: [full developer name]
+RegulonDB Team: EDGAR ENRRIQUE HERNANDEZ MARCELO
 **/
-
-
-/**
-	
-# Functions description
-
-## [Function name]
-
-__Description:__ 
-
-[Description of the function]
-
-
-__Usage:__
-
-```javascript
-&function(Parameters, if any);
-```
-
-__Input arguments/parameters:__ 
-
-__[Name]:__ [Description]
-__[Name]:__ [Description]
-
-__Return:__ 
-
-__[Type]:__ [Name]
-[Description (if necessary)]
-**/
-
 import {Overviews} from '../overviewsService/overviews_model';
 
 class overviewsController{
@@ -80,3 +47,20 @@ class overviewsController{
 }
 
 export {overviewsController};
+
+/**
+	
+# Functions description
+
+## FIND ()
+
+__Description:__ 
+
+Realiza la busqueda de todos los elementos que se encuentren en el modelo de Overviews
+
+## FindOne()
+
+Realiza la busqueda de un elemento en especifico que se encuentre en el modelo de Overviews
+
+**/
+
