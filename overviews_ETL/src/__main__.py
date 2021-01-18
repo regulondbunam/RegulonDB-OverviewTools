@@ -69,7 +69,7 @@ import logging
 import sys
 
 
-
+#Creación de argumentos
 parser = argparse.ArgumentParser(description="Obtiene la dirección de la base de datos")
 parser.add_argument('-u', '--url', type=str, required=True, help='URL de dónde se encuentra la base de datos')
 parser.add_argument('-db', '--database', type=str, required=True, help='Nombre de la base de datos')
@@ -78,6 +78,7 @@ parser.add_argument('-s', '--save', type=str, required=True, help="Ruta para gua
 parser.add_argument('-lo', '--log', type=str, required=True, help="ruta para almacenar el log")
 args = parser.parse_args()
 
+#Creación del archivo log
 LOG_FORMAT = '%(asctime)-5s %(name)-15s %(levelname)-8s %(message)s'
 logging.basicConfig(
     filename=args.log+"\\log.log",
@@ -93,7 +94,8 @@ if __name__=='__main__':
        with open(args.document, 'r') as file:
            datamart = json.load(file)
            logging.info("Initiating Cycle for data reading")
-           for collection_name, collection_objects in datamart.items():
+
+           for collection_name, collection_objects in datamart['collectionData'].items():
                data = []
                logging.info("Starting reading the document: " + collection_name)
 
@@ -101,6 +103,8 @@ if __name__=='__main__':
 
                    logging.info("Working with : "+collection_name+ " ID: "+json_object["_id"])
                    logging.info("Copying Object: "+collection_name)
+
+
                    new_json_object = json_object.copy()
 
                    logging.info(("Getting data for graph"))
@@ -126,18 +130,26 @@ if __name__=='__main__':
 
                    logging.info("updating data...")
                    new_json_object.update({
+                        "_id":(json_object['queryName']+json_object['graph']['graphType']),
                        "data": data_for_graphics["dataSummary"]
                    })
 
                    logging.info("adding data")
+
                    data.append(new_json_object.copy())
 
+               collectionDataJson = {
+                       "collectionData": data,
+                       "classAcronym": datamart['classAcronym'],
+                       "subclassAcronym": datamart['subclassAcronym'],
+                       "collectionName": datamart['collectionName']
+               }
 
-
+               #collectionDataJson['collectionData'].append(data)
 
                logging.info("Creating JSON with the loaded data")
                with open(args.save + "\\OverviewTools.json", 'w') as f:
-                   json.dump(data, f, indent=2)
+                   json.dump(collectionDataJson, f, indent=2)
        logging.info("End of program")
        print("File created successfully")
    except :

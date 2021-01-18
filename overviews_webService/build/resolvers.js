@@ -14,27 +14,20 @@ var _overviews_resolver = require('./overviewsService/overviews_resolver');
 	
 ## Description
 
-[Description details]
+Realiza la union de todos los resolvers que existan de overviewsServices y otros servicios web si es que existen
 
 ## Usage 
 
-```javascript
-&function(Parameters, if any);
-```
+Agregar dentro de resolvers el resolver que se quiere añadir dentro de corchetes y separado por comas por cada resolver.
+
 
 ## Arguments/Parameters
-
-__[Name]:__ [Description]
-__[Name]:__ [Description]
-
+N/A
 ## Examples
-
-[Example details]
+ mergeResolvers([overviewsResolver,otroResolver,...resolverN]);
 
 ## Return 
-
-__[Type]:__ [Name]
-[Description (if necessary)]
+N/A
 
 ## Category
 
@@ -46,35 +39,16 @@ MIT License
 
 ## Author 
 
-RegulonDB Team: [full developer name]
+RegulonDB Team: EDGAR ENRRIQUE HERNANDEZ MARCELO
 **/
+const resolvers = exports.resolvers = (0, _mergeGraphqlSchemas.mergeResolvers)([_overviews_resolver.overviewsResolver]);
 
 /**
 	
 # Functions description
 
-## [Function name]
+## N/A
 
-__Description:__ 
+N/A
 
-[Description of the function]
-
-
-__Usage:__
-
-```javascript
-&function(Parameters, if any);
-```
-
-__Input arguments/parameters:__ 
-
-__[Name]:__ [Description]
-__[Name]:__ [Description]
-
-__Return:__ 
-
-__[Type]:__ [Name]
-[Description (if necessary)]
 **/
-
-const resolvers = exports.resolvers = (0, _mergeGraphqlSchemas.mergeResolvers)([_overviews_resolver.overviewsResolver]);

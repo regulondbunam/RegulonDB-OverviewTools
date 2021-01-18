@@ -1,36 +1,153 @@
-type Overview{
-  getAllObjectInfo:  [overviewInfoType]
+#Este esquema representa a overviewsDatamart
+#El type principal es overviewInfoType
+#Y cuenta únicamente con 2 Querys donde únicamente uno necesita un argumento que es el Id
+
+type Overview {
+  getAllObjectInfo: [overviewInfoType]
   getOverview(_id: String): overviewInfoType
 }
 
+"""
+Este es el type de overviews con toda la estructura del overview que se mostrará
+"""
 type overviewInfoType {
+  """
+  _id es de tipo string y es el identificador de los overviews que existen en la colección
+  """
   _id: String
+
+  """
+  queryName Es el nombre de la consulta
+  """
   queryName: String
+
+  """
+  Es el nombre del objeto padre ej. GENE
+  """
   objectType: String
+
+  """
+  graph Contiene las variables y tipos de datos de la información básica del objeto padre que se va a graficar
+  """
   graph: graphType
+
+  """
+  Contiene los datos agrupados dentro de la colección que se almacenan en un arreglo de objetos
+  """
   data: [dataType]
 }
 
+"""
+Este type contiene las variables que almacenan la información básica de las graficas
+"""
 type graphType {
+  """
+  title contiene el nombre de la gráfica Ej. 'Number of promoters transcribing the gene'
+  """
   title: String
+
+  """
+  descrition contienela información básica para describir la gráfica
+  """
   description: String
+
+  """
+  labelX es el nombre para describir el eje X en la gráfica
+  """
   labelX: String
+
+  """
+  labelY es el nombre para describir el eje Y en la gráfica
+  """
   labelY: String
+
+  """
+  footGraph contiene una breve información de la grafica
+  """
   footGraph: String
+
+  """
+  graphType contiene el nombre del tipo de gráfico que se hizo, ej. Barras
+  """
   graphType: String
 }
 
+"""
+Este es el type de dataType el cual  tiene la información para realizar la gráfica
+"""
 type dataType {
+  """
+  xAxis es el valor numerico que se graficará en el eje x
+  """
   xAxis: Int
+
+  """
+  yAxis es el valor numérico que se graficará en el eje Y
+  """
   yAxis: Int
+
+  """
+  objectRelated  contiene un arreglo de objetos los cuales debe contener para cada grupo de (x,y)
+  """
   objectsRelated: [objectsRelatedType]
 }
 
+"""
+
+"""
 type objectsRelatedType {
+  """
+  _ID contiene el idenficador de cada elemento que ha sido agrupado
+  """
   _id: String
+
+  """
+  name contiene el nombre de cada elemento que ha sido agrupado
+  """
   name: String
 }
+
 type Query {
-  getAllObjectInfo:  [overviewInfoType]
+  """
+  #### nombre
+  getAllObjectInfo
+  #### descripción
+    Lista todos los elementos existentes dentro de la colección
+  """
+  getAllObjectInfo: [overviewInfoType]
+
+  """
+    #### nombre
+    getOverview
+    #### descripción
+      Muestra el elemento que ha sido llamado y despliega toda la información que contiene
+    #### example
+    ```json
+   {
+  getOverview(_id:"RDBECOLIOV00002"){
+    _id
+    queryName
+    objectType
+    graph{
+      title
+    	description
+      labelX
+      labelY
+      footGraph
+    	graphType
+    }
+    data{
+      xAxis
+      yAxis
+      objectsRelated{
+        _id
+        name
+      }
+    }
+
+  }
+  }
+    ```
+  """
   getOverview(_id: String): overviewInfoType
 }

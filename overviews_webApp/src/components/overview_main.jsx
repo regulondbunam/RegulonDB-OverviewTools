@@ -1,3 +1,70 @@
+/*
+
+# Component (user guide)
+
+# Overview Main
+
+## Description  
+Contiene todos los elementos que pueden previsualizarse en forma de gráfica, y ver sus datos en una tabla
+
+
+## Category   
+
+Visual 
+
+## Live demo 
+
+N/A
+
+
+## Installation 
+
+npm install react-apollo
+
+## Usage 
+<main></main>
+
+## Props 
+
+N/A
+
+## Exception
+
+N/A
+
+## License
+
+MIT License
+
+## Author 
+
+RegulonDB Team: 
+EDGAR ENRRIQUE HERNANDEZ MARCELO
+GABRIEL
+
+# Component (technical guide)
+
+## Component Type 
+
+stateless
+
+## Dependencies
+N/A
+
+## States
+
+N/A
+
+# Functions description
+
+## Main
+
+Retorna los componentes de Cover y Acordion 
+Acordion contiene de forma agrupada los elementos que contienen sub elementos los cuales se pueden graficar
+
+*/ 
+
+
 import Querys from "../graphql/Querys";
 import { useQuery } from "react-apollo";
 import { Cover } from "./ui-components/index";
@@ -7,21 +74,8 @@ function Main() {
   const { data, loading, error } = useQuery(Querys);
   if (error) return <h2>Error...</h2>;
   if (loading) return <h2>loading...</h2>;
-  if (data) {
+  if (data) { 
     const { getAllObjectInfo } = data;
-
-    //Declaramos un nuevo objeto que almacenara la agrupación de titulos
-    /**
-     * {
-     *  nameGroup: "gene",
-     *  elements: [
-     *    {
-     *      id: "RDB00012"
-     *      title: "titulo de grafica"
-     *      }
-     *  ]
-     * }
-     */
     let groupByObject = [];
     let objectNames = [];
     

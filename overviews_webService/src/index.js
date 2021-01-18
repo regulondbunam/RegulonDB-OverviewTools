@@ -37,8 +37,6 @@ MIT License
 RegulonDB Team: Edgar Enrrique Hernandez Marcelo
 **/
 
-
-const express = require('express');
 const {typeDefs} = require('./schema') ;
 const {resolvers} = require('./resolvers') ;
 const {ApolloServer} = require('apollo-server');

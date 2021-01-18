@@ -16,31 +16,25 @@ var _fs2 = _interopRequireDefault(_fs);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const Overviews = _apolloServerExpress.gql`${_fs2.default.readFileSync('./src/overviewsService/overviews_schema.graphql').toString()}`; /**
-                                                                                                                                        # [Web Service Name]
+                                                                                                                                        # Schema
                                                                                                                                         	
                                                                                                                                         ## Description
                                                                                                                                         
-                                                                                                                                        [Description details]
+                                                                                                                                        Lee la estructura del Graphql y une los schemas del Overviews Service para despues retornarlo en una variable llamada typedefs
                                                                                                                                         
                                                                                                                                         ## Usage 
                                                                                                                                         
-                                                                                                                                        ```javascript
-                                                                                                                                        &function(Parameters, if any);
-                                                                                                                                        ```
+                                                                                                                                        N/A
                                                                                                                                         
                                                                                                                                         ## Arguments/Parameters
                                                                                                                                         
-                                                                                                                                        __[Name]:__ [Description]
-                                                                                                                                        __[Name]:__ [Description]
+                                                                                                                                            overviews_schema.graphql: Es la estructura que contiene los datos de la coleccion en mongoDB, así como también cuenta con los querys que se podran realizar
                                                                                                                                         
                                                                                                                                         ## Examples
-                                                                                                                                        
-                                                                                                                                        [Example details]
+                                                                                                                                        N/A
                                                                                                                                         
                                                                                                                                         ## Return 
-                                                                                                                                        
-                                                                                                                                        __[Type]:__ [Name]
-                                                                                                                                        [Description (if necessary)]
+                                                                                                                                        N/A
                                                                                                                                         
                                                                                                                                         ## Category
                                                                                                                                         
@@ -52,35 +46,13 @@ const Overviews = _apolloServerExpress.gql`${_fs2.default.readFileSync('./src/ov
                                                                                                                                         
                                                                                                                                         ## Author 
                                                                                                                                         
-                                                                                                                                        RegulonDB Team: [full developer name]
+                                                                                                                                        RegulonDB Team: Edgar Enrrique Hernández Marcelo
                                                                                                                                         **/
+
+const typeDefs = exports.typeDefs = (0, _mergeGraphqlSchemas.mergeTypes)([Overviews], { all: true });
 
 /**
 	
 # Functions description
-
-## [Function name]
-
-__Description:__ 
-
-[Description of the function]
-
-
-__Usage:__
-
-```javascript
-&function(Parameters, if any);
-```
-
-__Input arguments/parameters:__ 
-
-__[Name]:__ [Description]
-__[Name]:__ [Description]
-
-__Return:__ 
-
-__[Type]:__ [Name]
-[Description (if necessary)]
+N/A
 **/
-
-const typeDefs = exports.typeDefs = (0, _mergeGraphqlSchemas.mergeTypes)([Overviews], { all: true });

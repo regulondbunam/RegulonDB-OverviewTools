@@ -39,31 +39,6 @@ MIT License
 RegulonDB Team: Edgar Enrrique Hernandez Marcelo
 **/
 
-/**
-	
-# Functions description
-
-## connectionDB
-
-__Description:__ 
-
-Hace uso de la funcion connectionDB la cual se encarga de realizar la conexion entre el servidor y el cliente de apollo
-
-
-__Usage:__
-
-```javascript
-&function(Parameters, if any);
-```
-
-__Input arguments/parameters:__ 
-
-N/A
-__Return:__ 
-N/A
-**/
-
-const express = require('express');
 const { typeDefs } = require('./schema');
 const { resolvers } = require('./resolvers');
 const { ApolloServer } = require('apollo-server');
@@ -81,3 +56,19 @@ const server = new ApolloServer({
 server.listen().then(({ url }) => {
   console.log(`server ready on URL : ${url}`);
 });
+
+/**
+	
+# Functions description
+
+## connectionDB
+
+__Description:__ 
+
+Hace uso de la funcion connectionDB la cual se encarga de realizar la conexion entre el servidor y el cliente de apollo
+
+
+N/A
+__Return:__ 
+N/A
+**/
