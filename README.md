@@ -1,8 +1,6 @@
-# [Software name]
-
+# RegulonDB Overviews Tools
 # Description
 
-[High-level description, describing what exactly software does.]
 
 # Motivation
 
