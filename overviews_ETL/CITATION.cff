@@ -12,6 +12,6 @@ identifiers:
     value: "[example: mbiotools:RSAT_-_Retrieve_Sequence]"
 license: [GPL-3.0-only | Apache-2.0 | MIT ]
 repository-code: [URL example: https://github.com/regulondbunam/Components]
-title: [example: Components]
+title: [ETL Overviews Tools]
 url: [URL example: http://regulondbtools.ccg.unam.mx/Components]
-version: X.X.X
+version: 1.0
