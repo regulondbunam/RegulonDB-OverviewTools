@@ -1,8 +1,8 @@
-# [Software name]
+# Overviews ETL 
 
 # Description
+Este programa se encarga de realizar una extracción de datos desde una base de datos dada, lee además un archivo JSON para obtener variables, rutas e información que será necesaria para almacenar en un nuevo datamart. Esta información, se procesa, se generan nuevos datos y se implementan en un JSON nuevo, el cual será el encargado de contener todos los datos que el usuario final podrá ver.
 
-[High-level description, describing what exactly software does.]
 
 # Motivation
 
@@ -12,11 +12,12 @@
 
 # System requirements
 
-[If the software does make high demand on particular resources, then this should be clearly advertised and explained.]
+Python 3.7 +
+Pymongo Module
 
 # Install 
 
-[This may be described in a separate INSTALL file, but the README must then clearly state this.]
+N/A
 
 
 
