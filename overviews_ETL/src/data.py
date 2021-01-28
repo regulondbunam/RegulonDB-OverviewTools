@@ -63,7 +63,6 @@ def get_name_id_gen(query_route, mongo_field_object, collection, object_name):
     for i in group_xAxis:
         lista = []
         entry = {}
-
         for item in cursor.find({
             mongo_field_object: i
         },
@@ -72,17 +71,12 @@ def get_name_id_gen(query_route, mongo_field_object, collection, object_name):
                     object_name: 1
                 }):
             gen_name = item["gene"]
-            """ lista.append(item["_id"])
-            lista2.append(gen_name["name"])   """
-
             entry = {'_id': item["_id"], 'name': gen_name["name"]}
             lista.append(entry)
-
         overviewDetails['dataSummary'].append({
             "xAxis": i,
             "yAxis": group_yAxis[count],
             "objectsRelated": lista
-
         })
         count = count + 1
         data_summary = overviewDetails

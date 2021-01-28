@@ -67,6 +67,7 @@ from data import *
 import  argparse
 import logging
 import sys
+import platform
 
 
 #Creación de argumentos
@@ -79,14 +80,23 @@ parser.add_argument('-lo', '--log', type=str, required=True, help="ruta para alm
 args = parser.parse_args()
 
 #Creación del archivo log
-LOG_FORMAT = '%(asctime)-5s %(name)-15s %(levelname)-8s %(message)s'
-logging.basicConfig(
-    filename=args.log+"\\log.log",
-    format=LOG_FORMAT,
-    level  = logging.DEBUG,
-    filemode='w')
-logger = logging.getLogger()
 
+if platform.system()=="Windows":
+    LOG_FORMAT = '%(asctime)-5s %(name)-15s %(levelname)-8s %(message)s'
+    logging.basicConfig(
+        filename=args.log + "\\log.log",
+        format=LOG_FORMAT,
+        level=logging.DEBUG,
+        filemode='w')
+    logger = logging.getLogger()
+else:
+    LOG_FORMAT = '%(asctime)-5s %(name)-15s %(levelname)-8s %(message)s'
+    logging.basicConfig(
+        filename=args.log + "/log.log",
+        format=LOG_FORMAT,
+        level=logging.DEBUG,
+        filemode='w')
+    logger = logging.getLogger()
 
 if __name__=='__main__':
    logging.info("Start program execution")
@@ -103,7 +113,6 @@ if __name__=='__main__':
 
                    logging.info("Working with : "+collection_name+ " ID: "+json_object["_id"])
                    logging.info("Copying Object: "+collection_name)
-
 
                    new_json_object = json_object.copy()
 
@@ -148,8 +157,12 @@ if __name__=='__main__':
                #collectionDataJson['collectionData'].append(data)
 
                logging.info("Creating JSON with the loaded data")
-               with open(args.save + "\\OverviewTools.json", 'w') as f:
-                   json.dump(collectionDataJson, f, indent=2)
+               if platform.system()=="Windows":
+                   with open(args.save + "\\OverviewTools.json", 'w') as f:
+                       json.dump(collectionDataJson, f, indent=2)
+               else:
+                   with open(args.save + "/OverviewTools.json", 'w') as f:
+                       json.dump(collectionDataJson, f, indent=2)
        logging.info("End of program")
        print("File created successfully")
    except :
